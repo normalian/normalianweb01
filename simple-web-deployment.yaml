@@ -1,0 +1,33 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: simple-web-deployment
+spec:
+  selector:
+    matchLabels:
+      app: simple-web-001
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: simple-web-001
+    spec:
+      containers:
+      - name: simple-web-001
+        image: normalianwinregister.azurecr.io/normaliannormalianweb:#{Build.BuildId}#
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: sample-web-001-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-web-001-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 443
+  selector:
+    app: simple-web-001
