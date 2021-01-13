@@ -15,11 +15,12 @@ namespace normalianweb01.Pages
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
+            logger.LogInformation("This is test just log");
         }
 
         public void OnGet()
         {
-
+            ViewData["message"] = "my code here";
         }
     }
 }
