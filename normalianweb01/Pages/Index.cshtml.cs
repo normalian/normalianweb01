@@ -20,7 +20,7 @@ namespace normalianweb01.Pages
 
         public void OnGet()
         {
-            ViewData["message"] = "my code here";
+            ViewData["message"] = "my code is here";
         }
     }
 }
