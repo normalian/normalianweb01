@@ -10,7 +10,8 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'a8277fa1-5b56-4f6f-ae13-3a9974d9e8fa'
+  # dockerRegistryServiceConnection: 'a8277fa1-5b56-4f6f-ae13-3a9974d9e8fa'
+  dockerRegistryServiceConnection: 'normalianweb01acr'
   imageRepository: 'normalianweb01'
   containerRegistry: 'normalianweb01acr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/normalianweb01/Dockerfile'
