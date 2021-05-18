@@ -8,7 +8,7 @@
 <p>Use this page to detail your site's privacy policy.</p>
 @if (string.IsNullOrEmpty(User.Identity.Name) == true)
 {
-    <div>ClaimsPrincipal.Current is empty</div>
+    <div>User.Identity.Name is empty</div>
 }
 else
 {
