@@ -15,9 +15,13 @@
 </div>
 <div>@ViewData["message"]</div>
 
+@if (ClaimsPrincipal.Current == null)
+{
+    <div>ClaimsPrincipal.Current is empty</div>
+}
 <ul>
-    @foreach (var claim in User.Claims.ToList())
+    @foreach (var claim in ClaimsPrincipal.Current.Claims.ToList())
     {
-    <li><span>@claim.Type</span> = <span>@claim.Value</span></li>
+        <li><span>@claim.Type</span> = <span>@claim.Value</span></li>
     }
 </ul>

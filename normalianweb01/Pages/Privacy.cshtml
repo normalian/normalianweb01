@@ -6,4 +6,11 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
-<p>@User.Identity.Name</p>
+@if (string.IsNullOrEmpty(User.Identity.Name) == true)
+{
+    <div>ClaimsPrincipal.Current is empty</div>
+}
+else
+{
+    <div>@User.Identity.Name</div>
+}
