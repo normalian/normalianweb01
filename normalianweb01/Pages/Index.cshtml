@@ -1,4 +1,9 @@
 ﻿@page
+
+@using System.Security.Claims
+@using System.Collections.Generic
+@using System.Linq
+
 @model IndexModel
 @{
     ViewData["Title"] = "Home page on Linux Container on App Service";
@@ -9,3 +14,10 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 <div>@ViewData["message"]</div>
+
+<ul>
+    @foreach (var claim in ClaimsPrincipal.Current.Identities.First().Claims.ToList())
+    {
+    <li><span>@claim.Type</span> = <span>@claim.Value</span></li>
+    }
+</ul>
