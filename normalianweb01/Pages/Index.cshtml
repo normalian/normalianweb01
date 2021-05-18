@@ -16,7 +16,7 @@
 <div>@ViewData["message"]</div>
 
 <ul>
-    @foreach (var claim in ClaimsPrincipal.Current.Identities.First().Claims.ToList())
+    @foreach (var claim in User.Claims.ToList())
     {
     <li><span>@claim.Type</span> = <span>@claim.Value</span></li>
     }
